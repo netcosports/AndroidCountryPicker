@@ -98,8 +98,7 @@ public class CountryListAdapter extends BaseAdapter {
 		cell.textView.setText(country.getName());
 
 		// Load drawable dynamically from country code
-		String drawableName = "flag_"
-				+ country.getCode().toLowerCase(Locale.ENGLISH);
+		String drawableName = country.getCode().toLowerCase(Locale.ENGLISH);
 		cell.imageView.setImageResource(getResId(drawableName));
 		return cellView;
 	}
