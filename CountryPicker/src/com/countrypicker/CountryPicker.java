@@ -10,6 +10,7 @@ import java.util.Currency;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 import org.json.JSONObject;
 
@@ -96,6 +97,8 @@ public class CountryPicker extends DialogFragment implements
 
 				// Read from local file
 				String allCountriesString = readFileAsString(getActivity());
+				allCountriesString = allCountriesString.replaceAll(Pattern.quote("&amp;"), "&");
+				allCountriesString = allCountriesString.replaceAll(Pattern.quote("&apos;"), "'");
 				JSONObject jsonObject = new JSONObject(allCountriesString);
 				Iterator<?> keys = jsonObject.keys();
 
